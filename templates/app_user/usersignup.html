@@ -1,0 +1,27 @@
+{% extends 'app_user/usercommon.html' %}
+{% load  static %}
+{% block common %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <form action="{% url 'savesignup' %}"method="post">
+     {% csrf_token %}
+    <table align="center" cellpadding="5">
+      <tr align="center">
+          <th colspan="2"style="background-color: blue;color: white;font-size: 25px"> Register Here </th>
+      </tr>
+         {{ forms }}
+      <tr align="center">
+          <th colspan="2"><button type="submit" class="btn btn-primary"> Rgister </button></th>
+      </tr>
+      <tr align="center"style="background-color: blue;color: white">
+          {% for x in messages %}
+          <th colspan="2">
+              {{ x }}
+          </th>
+          {% endfor %}
+      </tr>
+    </table>
+    </form>
+{% endblock %}

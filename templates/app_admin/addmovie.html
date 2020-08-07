@@ -1,0 +1,58 @@
+{% extends 'app_admin/admin_common.html' %}
+{% load static %}
+{% block common %}
+    <br>
+    <br>
+    <br>
+    <table align="center" cellpadding="5">
+      <tr>
+          <th>
+               <table align="center"border="3" cellpadding="5">
+                 <tr align="center"style="color: greenyellow">
+                   <th bgcolor="black"colspan="7">Add your Movie Here</th>
+                 </tr>
+                 <tr align="center"style="background-color: greenyellow;color: red">
+                   <th>Movie Name</th>
+                   <th>Type</th>
+                   <th>Rank</th>
+                   <th>Casting</th>
+                   <th>Release Year</th>
+                   <th>Image</th>
+                   <th>option</th>
+                 </tr>
+                 {% for x in data %}
+                 <tr>
+                   <th>
+                       <input type="text" value="{{ x.l }}" readonly name="m1">
+                   </th>
+                   <th>
+                       <input type="text" value="{{ x.q }}" readonly name="m2">
+                   </th>
+                   <th>
+                       <input type="number"  value="{{ x.rank }}" readonly name="m3">
+                   </th>
+                   <th>
+                       <input type="text" value="{{ x.s }}"readonly name="m4">
+                   </th>
+                   <th>
+                       <input type="number"  value="{{ x.y }}" readonly name="m5">
+                   </th>
+                   <th>
+                       {% for x in data.i %}
+                         <img src="{{ x.imageUrl.Url }}" width="60" height="60">
+                         <input type="text" value="{{ x.imageUrl }}"readonly name="m6">
+                       {% endfor %}
+                   </th>
+                   <th>
+                       <a href="{% url 'savemovie' %}?mdata={{ x.l }},{{ x.q }},{{ x.rank }},{{ x.s }},{{ x.y }},{{ x.imageurl }}">
+                        <button type="submit" class="btn btn-success">Add</button>
+                       </a>
+                   </th>
+                 </tr>
+                 {% endfor %}
+               </table>
+          </th>
+      </tr>
+    </table>
+{% endblock %}
+

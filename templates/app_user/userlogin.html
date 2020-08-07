@@ -1,0 +1,27 @@
+{% extends 'app_user/usercommon.html' %}
+{% load static %}
+{% block common %}
+   <br>
+   <br>
+   <br>
+   <br>
+   <form action="{% url 'userloginhome' %}"method="post">
+    {% csrf_token %}
+   <table align="center" cellpadding="5">
+      <tr align="center"style="background-color: blue;color: white;font-size: 25px">
+          <th colspan="2"> Login Here </th>
+      </tr>
+       {{ forms }}
+      <tr align="center">
+          <th colspan="2">
+               <button type="submit" class="btn btn-primary"> Login </button>
+          </th>
+      </tr>
+      <tr align="center"style="background-color: dodgerblue;color: white">
+          {% for x in messages %}
+           <th colspan="2">{{ x }}</th>
+          {% endfor %}
+      </tr>
+   </table>
+   </form>
+{% endblock %}

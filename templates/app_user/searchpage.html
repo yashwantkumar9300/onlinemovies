@@ -1,0 +1,24 @@
+{% extends 'app_user/usercommon.html' %}
+{% load static %}
+{% block common %}
+  <br>
+  <br>
+      <br>
+  <br>
+  <table align="center">
+    <tr style="color: blue">
+        {% for x in data %}
+         <th>
+          <div class="card border-warning mb-3" style="max-width: 18rem;">
+          <div class="card-header">{{ x.moviename }}</div>
+          <div class="card-body text-dark">
+          <h5 class="card-title"> Release On:-{{ x.release }}</h5>
+          <p class="card-text"> Starring:-{{ x.casting }}</p>
+          </div>
+          </div>
+          </th>
+          <th width="5"></th>
+        {% endfor %}
+    </tr>
+  </table>
+{% endblock %}

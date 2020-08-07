@@ -1,0 +1,31 @@
+{% extends 'app_admin/admin_common.html' %}
+{% load static %}
+{% block common %}
+ <br>
+ <br>
+ <br>
+ <table align="center"border="2">
+    <tr align="center"style="background-color: black;color: greenyellow">
+        <th colspan="4">{{ name }}</th>
+    </tr>
+    <tr align="center"style="background-color: greenyellow;color: red">
+        <th>Type</th>
+        <th>Rank</th>
+        <th>Casting</th>
+        <th>Release Year</th>
+    </tr>
+    {% for x in data %}
+     <tr>
+     <th>{{ x.q }}</th>
+     <th>{{ x.rank }}</th>
+     <th>{{ x.s }}</th>
+     <th>{{ x.y }}</th>
+     </tr>
+    {% endfor %}
+    <tr align="center">
+        <th colspan="4">
+            <button type="button" class="btn btn-success">Add</button>
+        </th>
+    </tr>
+ </table>
+{% endblock %}
